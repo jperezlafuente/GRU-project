@@ -1,25 +1,25 @@
 # GRU Project 🚀
-Bienvenido al proyecto **GRU**. Aquí documentamos la detección de minions en League of Legends con visión por computadora.
+Welcome to the **GRU Project**, where we document minion detection in League of Legends using computer vision.
 
-## 📌 Objetivo
-Este proyecto detecta la posición de los minions en replays de LoL usando YOLOv8.
+## 📌 Objective
+This project detects minion positions in LoL replays using YOLOv8.
 
-## 📊 Precisión del Modelo
-El modelo alcanzó una precisión de **97.1% mAP@0.5** en validación.
+## 📊 Model Accuracy
+The model achieved **97.1% mAP@0.5** on validation.
 
-## 📂 Contenido
-- `notebooks/` → Scripts de entrenamiento y análisis.
-- `models/` → Pesos del modelo.
-- `results/` → Ejemplos de detecciones y gráficas de evaluación.
+## 📂 Repository Structure
+- `notebooks/` → Training and analysis scripts.
+- `models/` → Model weights.
+- `results/` → Detection examples and evaluation charts.
 
 ---
 
-### 🔹 **3. Subir Imágenes de Resultados**
-Para mostrar gráficos como las curvas Precision-Recall, sube imágenes a `docs/` y agrégalas en el `index.md`.  
+### 🔹 **3. Upload Results and Images**
+To showcase graphs like the Precision-Recall curve, upload images to `docs/` and embed them in `index.md`.  
 
-Ejemplo:  
+Example:  
 ```markdown
-## 🎯 Resultados del Modelo
-Aquí está la curva Precision-Recall:
+## 🎯 Model Results
+Here is the Precision-Recall curve:
 
-![Curva PR](./PR_curve.png)
+![PR Curve](./PR_curve.png)
