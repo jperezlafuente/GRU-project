@@ -86,11 +86,12 @@ This repository contains processed data and visualizations derived from the anal
 - **`wave_collisions_2025.csv`** → Coordinates of wave collision points for analyzed games.
 
 ### 📁 Visuals (`/visuals/`)
-- **`heatmap_example.png`** → Heatmap showing minion wave collision zones.
+- **`original_frame.png`** → Heatmap showing minion wave collision zones.
+- **`labeled_frame.png`** → Heatmap showing minion wave collision zones.
+- **`pr_curve_val.png`** → Heatmap showing minion wave collision zones.
+- **`original_frame2.png`** → Heatmap showing minion wave collision zones.
+- **`processed_frame.png`** → Heatmap showing minion wave collision zones.
 - **`wave_movement_analysis.png`** → Visual representation of wave movements over time.
-
-### 📁 Reports (`/reports/`)
-- **`wave_collision_analysis.ipynb`** → Jupyter Notebook with insights and analysis using the processed data (without revealing the detection method).
 
 ## 🔍 Insights and Applications
 This dataset and visualization can be useful for:
