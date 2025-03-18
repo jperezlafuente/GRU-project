@@ -1,4 +1,4 @@
-theme: jekyll-theme-minimal
 title: League of Legends Minion Wave Collision Analysis
 description: Analyzing minion wave behavior in League of Legends using computer vision.
 show_downloads: true
+#theme: jekyll-theme-minimal
