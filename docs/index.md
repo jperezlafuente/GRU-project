@@ -1,33 +1,40 @@
 # League of Legends Minion Wave Collision Analysis
 
 ## 📌 Project Overview
-This project analyzes minion wave behavior in League of Legends by detecting minions in video footage and identifying the collision points of red and blue minion waves in each lane. The goal is to provide insights into wave control and lane dynamics without revealing the full implementation details.
+This project analyzes minion wave behavior in League of Legends by detecting minions in video footage and identifying the collision points of red and blue minion waves in each lane. The goal is to provide insights into wave control and lane dynamics.
 
 ## 🏆 Objective
-The primary goal of this project is to gather information on **wave positions in professional League of Legends matches**, data that is not provided by Riot’s official partner GRID. To achieve this, the following process is followed:
+The primary focus of this project is to gather information on **wave positions in professional League of Legends matches** since it is not provided by Riot nor its official data partner GRID. To achieve this, the following process is followed:
 
-1. **Labeling images of minions on the minimap**
-2. **Developing a computer vision model (YOLOv8) for detection**
+1. **Labeling images of minions on the minimap to develop a CV model**
+2. **Developing a Computer Vision model (YOLOv8) for detection**
 3. **Extracting videos of professional matches**
-4. **Processing videos to detect minions in real-time**
+4. **Processing videos to detect minions in real game time**
 5. **Enhancing the dataset with additional game data**
 6. **Calculating the final wave positions per lane**
 
 ## 🔬 Step 1: Labeling Images for Training
-To train a computer vision model, I first manually labeled images of minions on the minimap using **LabelImg**. This step involves:
+To train a computer vision model, the first thing that should be done is labeling images. In this process, you have to gather as much images as possible from your topic and manually tag them whenever you see what you need to find. In my case, I need to label images from LOL games looking for minions dots in minimap. Funny part here is that I used my own SoloQ matches for this process since that was enough and easier to gather, but it is important to do it in the same quality that you should expect to gather real images later.
 
-- Capturing minimap snapshots from recorded games.
-- Annotating each minion’s position as **bounding boxes**.
-- Ensuring the labels correctly distinguish between red and blue minions.
+In order to tag them, I used **LabelImg**. It's a simple environment designed for this purpose, free and easy to use. You just need to:
+
+- Upload your own images to the platform (I chopped my games videos to images and selected random moments from them)
+- Annotating manually each minion’s position as **bounding boxes**.
+- Ensuring the labels correctly distinguish between the level of granularity you need. In my case, I just went for distinguishing red and blue minions.
 
 📷 *Example of labeled image:*
 ![Labeled Minimap Example](visuals/labeled_minimap.png)
 
 ## 🤖 Step 2: Training the Detection Model
+Once I had the images labeled, I just downloaded them from LabelImg in yolo format in order to train a Computer Vision model on them. Yolo format is just a repository where you have two folders: images and labels (where you have plain text docs for every image with the position of the bounding boxes and its class).
+
 A **YOLOv8-based** computer vision model was trained using the labeled images to accurately detect minions. Training setup:
 
-- **Dataset:** 5000 labeled frames
-- **Training epochs:** 300
+- **Dataset:** 300 labeled frames
+- **Training epochs:** 100
+
+I was not fully confident on uploading this numbers since I am aware that this is not an ideal environment to CV developing. Wherever you read, 300 frames are surely a low number of images to train a model. 100 epochs is cool, even you could go for more. However, since we had a lot of minions in every frame and we are dealing with really similar images and things to look for (small blue-red dots, almost always in the same part of the images), I gave it a try and results where promising. And yes, labeling time was also an issue to stop at 300 manually tagged images.
+
 - **Accuracy Results:**
   - **Precision-Recall Score:** 97.1%
   - **Mean Average Precision (mAP):** 95.3%
@@ -38,12 +45,14 @@ A **YOLOv8-based** computer vision model was trained using the labeled images to
 *Additional tests included evaluating detection performance on unseen games.*
 
 ## 🎥 Step 3: Extracting Match Videos
-Professional League of Legends matches are stored as **ROFL replay files** via Riot’s **GRID platform**. However, **Riot does not provide an official method to extract them as videos**.
+As a data analyst, once I had developed a reliable CV model I thought that toughest part had already gone. What an idiot I was.
 
-To overcome this:
-- **ReplayBook** was used to play the replays.
-- **Replays.xyz** was used to convert them into standard video format.
-- The full matches were recorded and stored for processing.
+Next step of the process involved gathering official competitive LOL games in order to look for minions in its frames. And since I am a part of ZETA Gaming, I had easy access to the videos via Riot's GRID platform. But League of Legends matches are stored as **ROFL replay files**. However, **Riot does not provide an official method to watch them or extract them as videos once its patch is not live patch anymore** (WTF).
+
+Since live patches are constantly updated, pro games were 99% outdated and unavailable to be reproduced. I did even ask GRID if they had an official statement on how to do this, but they said NO. Thankfully, LOL community is one of the strongest I've ever seen and they gave me the help I needed (thanks Pablo, Julia and Fire). So i used:
+- **ReplayBook** to play the replays.
+- **Replays.xyz** to get older LOL clients.
+- The full matches were recorded (x8 speed, max quality) and stored in the highlights folder for processing.
 
 ## 🛠️ Step 4: Processing Videos for Minion Detection
 With the trained YOLOv8 model, the next step was **processing the match footage to extract minion positions**:
