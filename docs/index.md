@@ -33,7 +33,7 @@ A **YOLOv8-based** computer vision model was trained using the labeled images to
 - **Dataset:** 300 labeled frames
 - **Training epochs:** 100
 
-I was not fully confident on uploading this numbers since I am aware that this is not an ideal environment to CV developing. Wherever you read, 300 frames are surely a low number of images to train a model. 100 epochs is cool, even you could go for more. However, since we had a lot of minions in every frame and we are dealing with really similar images and things to look for (small blue-red dots, almost always in the same part of the images), I gave it a try and results where promising. And yes, labeling time was also an issue to stop at 300 manually tagged images.
+I was not fully confident on sharing this numbers since I am aware that this is not an ideal environment to CV developing. Wherever you read, 300 frames are surely a low number of images to train a model. 100 epochs is cool, even you could go for more. However, since we had a lot of minions in every frame and we are dealing with really similar images and things to look for (small blue-red dots, almost always in the same part of the images), I gave it a try and results where promising. And yes, labeling time was also an issue to stop at 300 manually tagged images.
 
 - **Accuracy Results:**
   - **Precision-Recall Score:** 97.1%
@@ -74,7 +74,7 @@ This could easily be the most understimated part of the process. Image detection
 To improve the dataset and clean potential inaccuracies, I incorporated:
 
 1. **Lane coordinates**, helping structure minion movement into distinct lanes.
-2. **GRID data** on **champion attacks on minions** (useful when champions obscure minions on the minimap).
+2. **GRID data** on **champion attacks on minions**.
 3. **Turret locations & destruction state**, since **turrets stop minion waves when they are alive**.
 
 Champion attacks on minions is the trickiest one, yet the most important since most of the time champ images will overlap minion dots on minimap. There's no "minion damage" on GRID data, so I have to calculate it substracting different types of damage to "Total Damage Dealt". This variable allowed to detect most of the minions estimated positions through the match. 
@@ -82,10 +82,14 @@ Champion attacks on minions is the trickiest one, yet the most important since m
 ## 🌊 Step 6: Determining the Wave Position at Each Timestamp
 Using the cleaned dataset, the final step was identifying **wave positions per lane**. Finally, classic data analysis, no more complex image processing nor data cleaning issues.
 
-I order to obtain wave positions, I had to **group minions into waves** based on proximity and then find the **wave closest to the enemy nexus**. Not as easy as it looks taking into account everything explained about accuracy issues, but I managed to get something quite consistent. Once I had it, I just needed to get clash point (where both waves from blue-red will stop and start to fight) by finding the medium lane point between them. Et voilà, c'est fini.
+In order to obtain wave positions, I had to **group minions into waves** based on proximity and then find the **wave closest to the enemy nexus**. Not as easy as it looks taking into account everything explained about accuracy issues, but I managed to get something quite consistent. Once I had it, I just needed to get clash point (where both waves from blue-red will stop and start to fight) by finding the medium lane point between them. 
+
+Et voilà, c'est fini.
 
 ## 📊 Data and Results
-This repository contains processed data and visualizations derived from the analysis. The following resources are available:
+This repository contains processed data and visualizations derived from the analysis. Feel free to explore them and contact me with any doubt or further developing. 
+
+The following resources are available:
 
 ### 📁 Data (`/data/`)
 - **`game_replay.rofl`** → Raw League of Legends replay file.
@@ -94,11 +98,11 @@ This repository contains processed data and visualizations derived from the anal
 - **`wave_collisions_2025.csv`** → Coordinates of wave collision points for analyzed games.
 
 ### 📁 Visuals (`/visuals/`)
-- **`original_frame.png`** → Heatmap showing minion wave collision zones.
-- **`labeled_frame.png`** → Heatmap showing minion wave collision zones.
-- **`pr_curve_val.png`** → Heatmap showing minion wave collision zones.
-- **`original_frame2.png`** → Heatmap showing minion wave collision zones.
-- **`processed_frame.png`** → Heatmap showing minion wave collision zones.
+- **`original_frame.png`** → Original frame uploaded to LabelImg.
+- **`labeled_frame.png`** → Final frame after labeling minions in LabelImg.
+- **`pr_curve_val.png`** → Precision recall curve in validation data.
+- **`original_frame2.png`** → Original frame to be processed and find minions.
+- **`processed_frame.png`** → Processed frame with detected minions around the image.
 - **`wave_movement_analysis.png`** → Visual representation of wave movements over time.
 
 ## 🔍 Insights and Applications
@@ -111,6 +115,7 @@ This dataset and visualization can be useful for:
 
 ## 👀 Community Involvement
 I invite the community to explore the results and help find new ways to leverage this data. Some possible areas of interest include:
+- **Improving any step from the process**, specially managing rofl files and obtaining videos from competitive matches.
 - **Wave positioning during teamfights**
 - **Impact of wave state on objective fights** (dragons, baron, turrets)
 - **Best actions after pushing a wave** (roaming, invading, resetting, etc.)
@@ -120,6 +125,6 @@ I invite the community to explore the results and help find new ways to leverage
 - **No implementation details**: The minion detection method and exact process are not shared to preserve proprietary methods.
 
 ## 📢 Contact & Contributions
-This project is shared for analytical and discussion purposes. If you have insights or ideas to expand the analysis, feel free to open a discussion or reach out!
+This project is shared for analytical and discussion purposes. If you have insights or ideas to expand the analysis, feel free to open a discussion or reach out ([Twitter: @jperezlafuente](https://twitter.com/jperezlafuente))!
 
 ---
