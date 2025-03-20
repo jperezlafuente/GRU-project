@@ -47,34 +47,42 @@ I was not fully confident on uploading this numbers since I am aware that this i
 ## 🎥 Step 3: Extracting Match Videos
 As a data analyst, once I had developed a reliable CV model I thought that toughest part had already gone. What an idiot I was.
 
-Next step of the process involved gathering official competitive LOL games in order to look for minions in its frames. And since I am a part of ZETA Gaming, I had easy access to the videos via Riot's GRID platform. But League of Legends matches are stored as **ROFL replay files**. However, **Riot does not provide an official method to watch them or extract them as videos once its patch is not live patch anymore** (WTF).
+Next step of the process involved gathering official competitive LOL games in order to look for minions in its frames. And since I am a part of ZETA Gaming, I had easy access to the videos via Riot's official data provider: GRID. But League of Legends matches are stored as **ROFL replay files**. However, **Riot does not provide an official method to watch them or extract them as videos once its patch is not live patch anymore** (WTF).
 
-Since live patches are constantly updated, pro games were 99% outdated and unavailable to be reproduced. I did even ask GRID if they had an official statement on how to do this, but they said NO. Thankfully, LOL community is one of the strongest I've ever seen and they gave me the help I needed (thanks Pablo, Julia and Fire). So i used:
+Since live patches are constantly updated, pro games were 99% outdated and unavailable to be reproduced. I did even ask GRID if they had an official statement on how to do this, but they said NO. Thankfully, LOL community is one of the strongest I've ever seen and they gave me the help I needed (thanks Pablo, Julia and Fire). So I used:
 - **ReplayBook** to play the replays.
 - **Replays.xyz** to get older LOL clients.
-- The full matches were recorded (x8 speed, max quality) and stored in the highlights folder for processing.
+- The full matches were recorded (x8 speed, max quality) and stored in the 'highlights' folder for processing.
 
 ## 🛠️ Step 4: Processing Videos for Minion Detection
-With the trained YOLOv8 model, the next step was **processing the match footage to extract minion positions**:
+With the trained YOLOv8 model, the next step was **processing the match footage to extract minion positions**. This process could be described in the following steps:
 
-- **Splitting video frames** at regular intervals.
+- **Splitting video frames** at regular intervals (1 sec).
 - **Running YOLOv8 detection** on each frame.
 - **Mapping detected minimap coordinates** to real in-game map positions (**X: 0-14750, Y: 0-14850**).
 - **Extracting timestamps** using OCR to synchronize data with game time.
 
+This is the most complex step of the process, but also the most rewarding one. I had to deal with CV Models and OCR Image processing at the same time for the first time in my life. Yet, once you understand the basics you can develop a fully automated process which actually fulfills this project's goal: reading videos and detecting minion positions in every timestamp.
+
+Note that image processing would only give pixel info about where minions are in the frame given. Transforming those "coordinates" into real LOL coordinates was a carefully hand-crafted process since -again- there's no real evidence about map full coordinates from official sources.
+
 ## 📊 Step 5: Enhancing Data with Additional Game Information
+Almost reaching the end... Let's keep up the pace.
+
+This could easily be the most understimated part of the process. Image detection is surely sophisticated and interesting, but there's always an error margin to be assumed. Minions can be detected from a lot of spots in the minimap, not only actual minions. So further data processing should be done in order to properly increase data accuracy.
+
 To improve the dataset and clean potential inaccuracies, I incorporated:
 
-- **GRID data** on **champion attacks on minions** (useful when champions obscure minions on the minimap).
-- **Turret locations & destruction state**, since **turrets stop minion waves when they are alive**.
-- **Lane coordinates**, helping structure minion movement into distinct lanes.
+1. **Lane coordinates**, helping structure minion movement into distinct lanes.
+2. **GRID data** on **champion attacks on minions** (useful when champions obscure minions on the minimap).
+3. **Turret locations & destruction state**, since **turrets stop minion waves when they are alive**.
+
+Champion attacks on minions is the trickiest one, yet the most important since most of the time champ images will overlap minion dots on minimap. There's no "minion damage" on GRID data, so I have to calculate it substracting different types of damage to "Total Damage Dealt". This variable allowed to detect most of the minions estimated positions through the match. 
 
 ## 🌊 Step 6: Determining the Wave Position at Each Timestamp
-Using the cleaned dataset, the final step was identifying **wave positions per lane**:
+Using the cleaned dataset, the final step was identifying **wave positions per lane**. Finally, classic data analysis, no more complex image processing nor data cleaning issues.
 
-1. **Grouping minions into waves** based on proximity.
-2. **Finding the wave closest to the enemy nexus**.
-3. **Calculating the average position of all minions in the wave**.
+I order to obtain wave positions, I had to **group minions into waves** based on proximity and then find the **wave closest to the enemy nexus**. Not as easy as it looks taking into account everything explained about accuracy issues, but I managed to get something quite consistent. Once I had it, I just needed to get clash point (where both waves from blue-red will stop and start to fight) by finding the medium lane point between them. Et voilà, c'est fini.
 
 ## 📊 Data and Results
 This repository contains processed data and visualizations derived from the analysis. The following resources are available:
