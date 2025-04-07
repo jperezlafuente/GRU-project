@@ -2,7 +2,6 @@
 
 📄 **Detailed Article** → [Read the the full documentation here](docs/full_analysis.md)
 
-📍 **Analyze wave control like never before.**  
 This project leverages computer vision to detect minions in professional League of Legends matches and identify **wave collision points** in each lane. Ideal for strategists, analysts, and curious minds.
 
 ---
