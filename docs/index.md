@@ -63,9 +63,11 @@ As a data analyst, once I had developed a reliable CV model I thought that tough
 Next step of the process involved gathering official competitive LOL games in order to look for minions in its frames. And since I am a part of ZETA Gaming, I had easy access to the videos via Riot's official data provider: GRID. But League of Legends matches are stored as **ROFL replay files**. However, **Riot does not provide an official method to watch them or extract them as videos once its patch is not live patch anymore** (WTF).
 
 Since live patches are constantly updated, pro games were 99% outdated and unavailable to be reproduced. I did even ask GRID if they had an official statement on how to do this, but they said NO. Thankfully, LOL community is one of the strongest I've ever seen and they gave me the help I needed (thanks Pablo, Julia and Fire). So I used:
-- **ReplayBook** to play the replays.
-- **Replays.xyz** to get older LOL clients.
+- **[ReplayBook](https://github.com/fraxiinus/ReplayBook)** to play the replays.
+- **[Replays.xyz](https://replays.xyz/)** to get older LOL clients.
 - The full matches were recorded (x8 speed, max quality) and stored in the 'highlights' folder for processing.
+
+You can find an example of the output [here](images/14-15_replay_riot_2724423_1_01_11minutes.webm).
 
 ## 🛠️ Step 4: Processing Videos for Minion Detection
 With the trained YOLOv8 model, the next step was **processing the match footage to extract minion positions**. This process could be described in the following steps:
@@ -100,22 +102,22 @@ In order to obtain wave positions, I had to **group minions into waves** based o
 Et voilà, c'est fini.
 
 ## 📊 Data and Results
-This repository contains processed data and visualizations derived from the analysis. Feel free to explore them and contact me with any doubt or further developing. 
+This repository contains processed data and visualizations derived from the analysis. Feel free to explore them and contact me with any doubt or further developing. Examples are from **G2-FNC LEC Season Finals 2024 - Final (Game 1)**.
 
 The following resources are available:
 
 ### 📁 Data (`/data/`)
-- **`processed_video.webm`** → Converted video file used for minion detection.
 - **`minion_detections.csv`** → CSV containing detected minion positions per second.
-- **`wave_collisions_2025.csv`** → Coordinates of wave collision points for analyzed games.
+- **`waves_clash.csv`** → Coordinates of wave collision points for analyzed games.
 
-### 📁 Visuals (`/visuals/`)
-- **`original_frame.png`** → Original frame uploaded to LabelImg.
+### 📁 Images (`/images/`)
+- **`14-15_replay_riot_2724423_1_01_11minutes.webm`** → Converted video file used for minion detection.
+- **`wave_positions.mp4`** → Visual representation of wave movements over time.
+- **`labeling_original_frame.png`** → Original frame uploaded to LabelImg.
 - **`labeled_frame.png`** → Final frame after labeling minions in LabelImg.
-- **`pr_curve_val.png`** → Precision recall curve in validation data.
-- **`original_frame2.png`** → Original frame to be processed and find minions.
+- **`PR_curve_val.png`** → Precision recall curve in validation data.
+- **`prediction_original_frame.png`** → Original frame to be processed and find minions.
 - **`processed_frame.png`** → Processed frame with detected minions around the image.
-- **`wave_movement_analysis.png`** → Visual representation of wave movements over time.
 
 ## 🔍 Insights and Applications
 This dataset and visualization can be useful for:
@@ -137,6 +139,6 @@ I invite the community to explore the results and help find new ways to leverage
 - **No implementation details**: The minion detection method and exact process are not shared to preserve proprietary methods.
 
 ## 📢 Contact & Contributions
-This project is shared for analytical and discussion purposes. If you have insights or ideas to expand the analysis, feel free to open a discussion or reach out ([Twitter: @jperezlafuente](https://twitter.com/jperezlafuente))!
+This project is shared for analytical and discussion purposes. If you have insights or ideas to expand the analysis, feel free to open a discussion or reach out ([Twitter: @jperezlafuente](https://twitter.com/jperezlafuente), [email](mailto:jperezlafuente@hotmail.com))!
 
 ---
