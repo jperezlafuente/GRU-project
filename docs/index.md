@@ -23,8 +23,8 @@ In order to tag them, I used **LabelImg**. It's a simple environment designed fo
 - Ensuring the labels correctly distinguish between the level of granularity you need. In my case, I just went for distinguishing red and blue minions.
 
 📷 *Example of labeled image (before-after):*
-<img src="images/labeling_original_frame.png" alt="Original Image" width="500" height="500">
-<img src="images/labeled_frame" alt="Labeled Image" width="500" height="500">
+<img src="images/labeling_original_frame.png" alt="Original Image" width="400" height="400">
+<img src="images/labeled_frame.png" alt="Labeled Image" width="400" height="400">
 
 ## 🤖 Step 2: Training the Detection Model
 Once I had the images labeled, I just downloaded them from LabelImg in yolo format in order to train a Computer Vision model on them. Yolo format is just a repository where you have two folders: images and labels (where you have plain text docs for every image with the position of the bounding boxes and its class).
@@ -41,11 +41,11 @@ I was not fully confident on sharing this numbers since I am aware that this is 
   - **Mean Average Precision (mAP):** 95.3%
 
 📊 *Precision-Recall Curve:*
-![PR Curve](../data/PR_curve_val.png)
+<img src="images/PR_curve_val.png" alt="PR Curve" width="400" height="400">
 
 📊 *Results example (before-after:*
-![Pre-Detection Image](../data/prediction_original_frame.png)
-![Post-Detection Image](../data/processed_frame.png)
+<img src="images/prediction_original_frame.png" alt="Pre-Detection Image" width="400" height="400">
+<img src="images/processed_frame.png" alt="Post-Detection Image" width="400" height="400">
 
 *Additional tests included evaluating detection performance on unseen games.*
 
@@ -97,7 +97,6 @@ This repository contains processed data and visualizations derived from the anal
 The following resources are available:
 
 ### 📁 Data (`/data/`)
-- **`game_replay.rofl`** → Raw League of Legends replay file.
 - **`processed_video.webm`** → Converted video file used for minion detection.
 - **`minion_detections.csv`** → CSV containing detected minion positions per second.
 - **`wave_collisions_2025.csv`** → Coordinates of wave collision points for analyzed games.
