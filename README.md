@@ -15,12 +15,12 @@ This pipeline takes raw video and turns it into actionable insights.
 
 ## 🔍 How It Works
 
-### 1️⃣ Label Minions  
-### 2️⃣ Train YOLOv8  
-### 3️⃣ Get Pro Matches  
-### 4️⃣ Detect Minions in Video  
-### 5️⃣ Enrich the Dataset  
-### 6️⃣ Find Clash Points  
+- Label Minions  
+- Train YOLOv8 Model
+- Get Pro Matches  
+- Detect Minions in Video  
+- Enrich the Dataset  
+- Find Clash Points  
 
 ---
 
