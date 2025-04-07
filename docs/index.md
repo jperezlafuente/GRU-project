@@ -23,8 +23,8 @@ In order to tag them, I used **LabelImg**. It's a simple environment designed fo
 - Ensuring the labels correctly distinguish between the level of granularity you need. In my case, I just went for distinguishing red and blue minions.
 
 📷 *Example of labeled image (before-after):*
-![Original Image](labeling_original_frame.png)
-![Labeled Image](labeled_frame.png)
+![Original Image](../data/labeling_original_frame.png)
+![Labeled Image](../data/labeled_frame.png)
 
 ## 🤖 Step 2: Training the Detection Model
 Once I had the images labeled, I just downloaded them from LabelImg in yolo format in order to train a Computer Vision model on them. Yolo format is just a repository where you have two folders: images and labels (where you have plain text docs for every image with the position of the bounding boxes and its class).
@@ -41,11 +41,11 @@ I was not fully confident on sharing this numbers since I am aware that this is 
   - **Mean Average Precision (mAP):** 95.3%
 
 📊 *Precision-Recall Curve:*
-![PR Curve](PR_curve_val.png)
+![PR Curve](../data/PR_curve_val.png)
 
 📊 *Results example (before-after:*
-![Pre-Detection Image](prediction_original_frame.png)
-![Post-Detection Image](processed_frame.png)
+![Pre-Detection Image](../data/prediction_original_frame.png)
+![Post-Detection Image](../data/processed_frame.png)
 
 *Additional tests included evaluating detection performance on unseen games.*
 
