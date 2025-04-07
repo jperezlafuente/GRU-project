@@ -22,9 +22,12 @@ In order to tag them, I used **LabelImg**. It's a simple environment designed fo
 - Annotating manually each minion’s position as **bounding boxes**.
 - Ensuring the labels correctly distinguish between the level of granularity you need. In my case, I just went for distinguishing red and blue minions.
 
-📷 *Example of labeled image (before-after):*
-<img src="images/labeling_original_frame.png" alt="Original Image" width="400" height="400">
-<img src="images/labeled_frame.png" alt="Labeled Image" width="400" height="400">
+<p>📷 <em>Example of labeled image (before-after):</em></p>
+
+<div style="display: flex; gap: 20px;">
+  <img src="images/labeling_original_frame.png" alt="Original Image" width="400" height="400">
+  <img src="images/labeled_frame.png" alt="Labeled Image" width="400" height="400">
+</div>
 
 ## 🤖 Step 2: Training the Detection Model
 Once I had the images labeled, I just downloaded them from LabelImg in yolo format in order to train a Computer Vision model on them. Yolo format is just a repository where you have two folders: images and labels (where you have plain text docs for every image with the position of the bounding boxes and its class).
