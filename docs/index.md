@@ -23,8 +23,8 @@ In order to tag them, I used **LabelImg**. It's a simple environment designed fo
 - Ensuring the labels correctly distinguish between the level of granularity you need. In my case, I just went for distinguishing red and blue minions.
 
 📷 *Example of labeled image (before-after):*
-![Original Image](../data/labeling_original_frame.png)
-![Labeled Image](../data/labeled_frame.png)
+<img src="images/labeling_original_frame.png" alt="Original Image" width="500" height="500">
+<img src="images/labeled_frame" alt="Labeled Image" width="500" height="500">
 
 ## 🤖 Step 2: Training the Detection Model
 Once I had the images labeled, I just downloaded them from LabelImg in yolo format in order to train a Computer Vision model on them. Yolo format is just a repository where you have two folders: images and labels (where you have plain text docs for every image with the position of the bounding boxes and its class).
