@@ -3,6 +3,8 @@
 ## 📌 Project Overview
 This project analyzes minion wave behavior in League of Legends by detecting minions in video footage and identifying the collision points of red and blue minion waves in each lane. The goal is to provide insights into wave control and lane dynamics.
 
+Full Project Repo: [https://github.com/jperezlafuente/GRU-project](https://github.com/jperezlafuente/GRU-project)
+
 ## 🏆 Objective
 The primary focus of this project is to gather information on **wave positions in professional League of Legends matches** since it is not provided by Riot nor its official data partner GRID. To achieve this, the following process is followed:
 
@@ -107,17 +109,17 @@ This repository contains processed data and visualizations derived from the anal
 The following resources are available:
 
 ### 📁 Data (`/data/`)
-- **`minion_detections.csv`** → CSV containing detected minion positions per second.
-- **`waves_clash.csv`** → Coordinates of wave collision points for analyzed games.
+- [**`minion_detections.csv`**](../data/minion_detections.csv) → CSV containing detected minion positions per second.
+- [**`waves_clash.csv`**](../data/waves_clash.csv) → Coordinates of wave collision points for analyzed games.
 
 ### 📁 Images (`/images/`)
-- **`14-15_replay_riot_2724423_1_01_11minutes.webm`** → Converted video file used for minion detection.
-- **`wave_positions.mp4`** → Visual representation of wave movements over time.
-- **`labeling_original_frame.png`** → Original frame uploaded to LabelImg.
-- **`labeled_frame.png`** → Final frame after labeling minions in LabelImg.
-- **`PR_curve_val.png`** → Precision recall curve in validation data.
-- **`prediction_original_frame.png`** → Original frame to be processed and find minions.
-- **`processed_frame.png`** → Processed frame with detected minions around the image.
+- [**`14-15_replay_riot_2724423_1_01_11minutes.webm`**](../images/14-15_replay_riot_2724423_1_01_11minutes.webm) → Converted video file used for minion detection.
+- [**`wave_positions.mp4`**](../images/wave_positions.mp4) → Visual representation of wave movements over time.
+- [**`labeling_original_frame.png`**](../images/labeling_original_frame.png) → Original frame uploaded to LabelImg.
+- [**`labeled_frame.png`**](../images/labeled_frame.png) → Final frame after labeling minions in LabelImg.
+- [**`PR_curve_val.png`**](../images/PR_curve_val.png) → Precision recall curve in validation data.
+- [**`prediction_original_frame.png`**](../images/prediction_original_frame.png) → Original frame to be processed and find minions.
+- [**`processed_frame.png`**](../images/processed_frame.png) → Processed frame with detected minions around the image.
 
 ## 🔍 Insights and Applications
 This dataset and visualization can be useful for:
