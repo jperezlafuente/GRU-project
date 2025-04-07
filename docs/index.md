@@ -24,7 +24,7 @@ In order to tag them, I used **LabelImg**. It's a simple environment designed fo
 
 <p>📷 <em>Example of labeled image (before-after):</em></p>
 
-<div style="display: flex; gap: 20px;">
+<div style="display: flex; gap: 20px; justify-content: center;">
   <img src="images/labeling_original_frame.png" alt="Original Image" width="400" height="400">
   <img src="images/labeled_frame.png" alt="Labeled Image" width="400" height="400">
 </div>
@@ -43,12 +43,17 @@ I was not fully confident on sharing this numbers since I am aware that this is 
   - **Precision-Recall Score:** 97.1%
   - **Mean Average Precision (mAP):** 95.3%
 
-📊 *Precision-Recall Curve:*
+<p>📊 <em>Precision-Recall Curve:</em></p>
+
 <img src="images/PR_curve_val.png" alt="PR Curve" width="400" height="400">
 
-📊 *Results example (before-after:*
-<img src="images/prediction_original_frame.png" alt="Pre-Detection Image" width="400" height="400">
-<img src="images/processed_frame.png" alt="Post-Detection Image" width="400" height="400">
+<p>📊 <em>Results example (before-after):</em></p>
+
+<div style="display: flex; gap: 20px; justify-content: center;">
+  <img src="images/prediction_original_frame.png" alt="Pre-Detection Image" width="400" height="400">
+  <img src="images/processed_frame.png" alt="Post-Detection Image" width="400" height="400">
+</div>
+
 
 *Additional tests included evaluating detection performance on unseen games.*
 
