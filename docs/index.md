@@ -134,10 +134,6 @@ I invite the community to explore the results and help find new ways to leverage
 - **Impact of wave state on objective fights** (dragons, baron, turrets)
 - **Best actions after pushing a wave** (roaming, invading, resetting, etc.)
 
-## ❗ Limitations
-- **No raw video data included**: To maintain processing confidentiality, only processed results are provided.
-- **No implementation details**: The minion detection method and exact process are not shared to preserve proprietary methods.
-
 ## 📢 Contact & Contributions
 This project is shared for analytical and discussion purposes. If you have insights or ideas to expand the analysis, feel free to open a discussion or reach out ([Twitter: @jperezlafuente](https://twitter.com/jperezlafuente), [email](mailto:jperezlafuente@hotmail.com))!
 
