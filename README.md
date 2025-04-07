@@ -1,6 +1,6 @@
 # 🧠 GRU PROJECT: League of Legends Minion Wave Collision Analysis
 
-📄 **Detailed Article** → [Read the the full documentation here](docs/full_analysis.md)
+📄 **Detailed Article** → [Read the the full documentation here](docs/index.md)
 
 This project leverages computer vision to detect minions in professional League of Legends matches and identify **wave collision points** in each lane. Ideal for strategists, analysts, and curious minds.
 
